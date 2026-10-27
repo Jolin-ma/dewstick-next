@@ -72,6 +72,19 @@ the 404 status codes, the shade picker, and the cart flow (which creates throwaw
 carts on the dev store). Run `npx playwright install chromium` once first. CI
 (`.github/workflows/ci.yml`) runs lint, type checks and the unit tests on every push.
 
-## Still to do
+## Lighthouse
 
-- Lighthouse numbers.
+Lighthouse 12.8 on the Vercel preview, median of 3 runs per page (27 Oct 2026).
+Mobile uses Lighthouse's default throttling (slow 4G, 4× CPU slowdown).
+
+| Page | Mobile perf | Desktop perf | Accessibility | Best practices | SEO | Mobile LCP |
+|---|---|---|---|---|---|---|
+| `/` | 95 | 100 | 100 | 100 | 100 | 2.9 s |
+| `/collections/shades` | 96 | 100 | 100 | 100 | 100 | 2.6 s |
+| `/products/dewstick-tinted-lip-balm` | 95 | 100 | 100 | 100 | 100 | 2.8 s |
+| `/zh` | 92 | 100 | 100 | 100 | 100 | 2.9 s |
+| `/zh/products/dewstick-tinted-lip-balm` | 94 | 100 | 100 | 100 | 100 | 2.8 s |
+
+Layout shift is 0 on every page. Two changes got here. 中文 uses the device's own
+CJK fonts: the Noto SC web fonts were ~2.5 MB per page and held `/zh` at 47–80 on
+mobile. The light greys are darker than in the other builds, to pass 4.5:1 contrast.

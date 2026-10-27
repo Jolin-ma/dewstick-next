@@ -26,8 +26,8 @@ export default async function Shades({ params }: PageProps<"/[lang]/collections/
         <p className="muted">{t("site.collection_desc")}</p>
       </div>
       <div className="g12 pgrid">
-        {balm.variants.map((v) => v.shade && <ShadeCard key={v.id} lang={lang} balm={balm} shade={v.shade} />)}
-        <SetCard lang={lang} set={set} />
+        {balm.variants.map((v) => v.shade && <ShadeCard key={v.id} lang={lang} balm={balm} shade={v.shade} heading="h2" />)}
+        <SetCard lang={lang} set={set} heading="h2" />
       </div>
     </section>
   );

@@ -15,9 +15,11 @@ type CardProps = {
   compare?: Money | null;
   desc?: string;
   badge?: string;
+  /** h3 under a section's h2 (home); h2 directly under the page's h1 (collection). */
+  heading?: "h2" | "h3";
 };
 
-function ProductCard({ href, image, title, alt, price, compare, desc, badge }: CardProps) {
+function ProductCard({ href, image, title, alt, price, compare, desc, badge, heading: Heading = "h3" }: CardProps) {
   return (
     <Link className="pcard" href={href}>
       <div className="pcard__media">
@@ -26,7 +28,7 @@ function ProductCard({ href, image, title, alt, price, compare, desc, badge }: C
         )}
         {badge && <span className="pcard__badge">{badge}</span>}
       </div>
-      <h3 className="pcard__title t-xl">{title}</h3>
+      <Heading className="pcard__title t-xl">{title}</Heading>
       <p className="pcard__price">
         {formatMoney(price)}
         {compare && <span className="faint pcard__compare">{formatMoney(compare)}</span>}
@@ -41,7 +43,7 @@ export function Swatch({ shade }: { shade: string }) {
 }
 
 /** One card per shade of the balm, linking to the product page with that shade selected. */
-export function ShadeCard({ lang, balm, shade }: { lang: Locale; balm: Product; shade: string }) {
+export function ShadeCard({ lang, balm, shade, heading }: { lang: Locale; balm: Product; shade: string; heading?: CardProps["heading"] }) {
   const t = getT(lang);
   const variant = balm.variants.find((v) => v.shade === shade);
   if (!variant) return null;
@@ -58,11 +60,12 @@ export function ShadeCard({ lang, balm, shade }: { lang: Locale; balm: Product; 
       }
       price={variant.price}
       desc={t(`shades.${shade}.line`)}
+      heading={heading}
     />
   );
 }
 
-export function SetCard({ lang, set }: { lang: Locale; set: Product }) {
+export function SetCard({ lang, set, heading }: { lang: Locale; set: Product; heading?: CardProps["heading"] }) {
   const t = getT(lang);
   const v = set.variants[0];
   const saving = v.compareAtPrice ? Number(v.compareAtPrice.amount) - Number(v.price.amount) : 0;
@@ -76,6 +79,7 @@ export function SetCard({ lang, set }: { lang: Locale; set: Product }) {
       compare={v.compareAtPrice}
       desc={t("set.body")}
       badge={saving > 0 ? t("home.badge_save", { amount: `$${saving}` }) : undefined}
+      heading={heading}
     />
   );
 }
