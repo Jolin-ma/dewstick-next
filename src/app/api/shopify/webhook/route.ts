@@ -1,6 +1,6 @@
 import { revalidateTag } from "next/cache";
 import { after } from "next/server";
-import { isValidSignature } from "@/lib/shopify/webhook";
+import { isValidSignature, sign } from "@/lib/shopify/webhook";
 
 // Shopify calls this when a product or its stock changes (Settings → Notifications → Webhooks).
 // The catalog is cached for an hour under the "products" tag; this expires it right away.
@@ -10,6 +10,8 @@ const CATALOG_TOPICS = /^(products|inventory_levels)\//;
 
 /** Shopify can send the webhook before the Storefront API serves the change, so expire twice. */
 const RECHECK_MS = 10_000;
+/** Marks the second pass, which this route sends to itself. */
+const RECHECK_HEADER = "x-dewstick-recheck";
 
 export async function POST(request: Request) {
   const secret = process.env.SHOPIFY_WEBHOOK_SECRET?.trim();
@@ -31,9 +33,23 @@ export async function POST(request: Request) {
   // expire: 0 rather than "max": nothing stale is kept to fall back on. The first page view
   // after this can still get the old page while the new one renders; the next gets the edit.
   revalidateTag("products", { expire: 0 });
-  after(async () => {
-    await new Promise((resolve) => setTimeout(resolve, RECHECK_MS));
-    revalidateTag("products", { expire: 0 });
-  });
+
+  // The second pass is its own signed request to this route: on Vercel, a revalidateTag
+  // inside after() runs once the response is sent and never reaches the CDN cache.
+  if (!request.headers.has(RECHECK_HEADER)) {
+    after(async () => {
+      await new Promise((resolve) => setTimeout(resolve, RECHECK_MS));
+      await fetch(request.url, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-shopify-topic": topic,
+          "x-shopify-hmac-sha256": sign(body, secret),
+          [RECHECK_HEADER]: "1",
+        },
+        body,
+      });
+    });
+  }
   return Response.json({ revalidated: true, topic });
 }
