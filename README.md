@@ -6,6 +6,8 @@ Shopify Storefront API. Catalog, cart and checkout come from the Shopify
 development store `dewstick.myshopify.com`; the design is the one from the other
 builds.
 
+**Preview:** https://dewstick-next.vercel.app
+
 ## What comes from where
 
 | | Source |
