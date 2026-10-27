@@ -30,6 +30,10 @@ builds.
 - **Cart** changes are Server Actions (`src/lib/cart-actions.ts`). The cart id is kept
   in an httpOnly cookie. Cart-page buttons are plain form submits, so they work
   before JavaScript loads.
+- **Unknown product URLs** are caught in the proxy, which checks the handle against
+  the store's product list (`src/lib/shopify/handles.ts`) and serves the 404 page
+  with a real 404 status. Left to the page, the first visit would stream the
+  prerendered shell with a 200 before `notFound()` ran.
 - **Checkout** links to Shopify's checkout (test mode, no real payment). The store is
   a password-protected development store, so checkout asks for that password first.
 
@@ -44,9 +48,21 @@ npm run dev                  # http://localhost:3000
 To get the token: Shopify admin → **Sales channels → Headless** → create a
 storefront → **Storefront API** → copy the *public access token*.
 
+## Tests
+
+```bash
+npm test           # unit tests (Vitest): i18n, metadata, proxy routing, Shopify mapping
+npm run test:e2e   # end-to-end (Playwright) against a production build on :3100
+PLAYWRIGHT_BASE_URL=https://dewstick-next.vercel.app npm run test:e2e   # against the preview
+```
+
+The unit tests mock Shopify and need no token. The end-to-end tests use the real
+Storefront API, so they need `.env.local`. They check every page in both languages,
+the 404 status codes, the shade picker, and the cart flow (which creates throwaway
+carts on the dev store). Run `npx playwright install chromium` once first. CI
+(`.github/workflows/ci.yml`) runs lint, type checks and the unit tests on every push.
+
 ## Still to do
 
-- Tests and Lighthouse numbers.
+- Lighthouse numbers.
 - On-demand revalidation: a Shopify product webhook calling `revalidateTag("products")`.
-- Unknown product URLs show the 404 page but return HTTP 200 (Cache Components
-  streams them; `dynamicParams = false` isn't available with it).
