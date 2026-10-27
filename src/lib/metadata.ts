@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { href, locales, type Locale } from "@/i18n";
 
+// Canonical, hreflang and Open Graph URLs. On Vercel that's the public address; the
+// project's own *.vercel.app name (dewstick-next) still answers but isn't canonical.
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+  process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL ? "https://dewstick.vercel.app" : "http://localhost:3000");
 
 export const metadataBase = new URL(siteUrl);
 

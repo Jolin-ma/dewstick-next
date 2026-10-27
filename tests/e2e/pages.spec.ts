@@ -71,3 +71,17 @@ test("language switch keeps the page", async ({ page }) => {
   await expect(page).toHaveURL(new RegExp(`/zh${SET}$`));
   await expect(page.locator("html")).toHaveAttribute("lang", "zh-CN");
 });
+
+test("old .html addresses from the static build redirect", async ({ request }) => {
+  for (const [from, to] of [
+    ["/index.html", "/"],
+    ["/cart.html", "/cart"],
+    ["/products/the-set-of-five.html", "/products/the-set-of-five"],
+    ["/zh/index.html", "/zh"],
+    ["/zh/collections/shades.html", "/zh/collections/shades"],
+  ]) {
+    const res = await request.get(from, { maxRedirects: 0 });
+    expect(res.status(), from).toBe(308);
+    expect(res.headers().location, from).toBe(to);
+  }
+});
