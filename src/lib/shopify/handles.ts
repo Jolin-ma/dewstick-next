@@ -11,9 +11,12 @@ const HANDLES_QUERY = /* GraphQL */ `
 const TTL = 5 * 60 * 1000;
 let cached: { handles: Set<string>; at: number } | null = null;
 
-/** Every product handle, or null if the Storefront API can't be reached. */
-export async function getProductHandles(): Promise<Set<string> | null> {
-  if (cached && Date.now() - cached.at < TTL) return cached.handles;
+/**
+ * Every product handle, or null if the Storefront API can't be reached.
+ * `maxAge` refetches a list older than that many ms, e.g. to recheck a miss.
+ */
+export async function getProductHandles(maxAge = TTL): Promise<Set<string> | null> {
+  if (cached && Date.now() - cached.at < maxAge) return cached.handles;
   try {
     const data = await storefrontFetch<{ products: { nodes: { handle: string }[] } }>(HANDLES_QUERY);
     cached = { handles: new Set(data.products.nodes.map((p) => p.handle)), at: Date.now() };

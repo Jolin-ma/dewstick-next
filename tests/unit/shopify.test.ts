@@ -86,6 +86,14 @@ describe("getProductHandles", () => {
     }
   });
 
+  it("refetches early when asked for a fresher list", async () => {
+    storefrontFetch.mockResolvedValueOnce(response("a")).mockResolvedValueOnce(response("a", "new"));
+    const { getProductHandles } = await import("@/lib/shopify/handles");
+
+    await getProductHandles();
+    expect(await getProductHandles(0)).toEqual(new Set(["a", "new"]));
+  });
+
   it("returns null when Shopify can't be reached and nothing is cached", async () => {
     storefrontFetch.mockRejectedValue(new Error("Storefront API 503"));
     const { getProductHandles } = await import("@/lib/shopify/handles");

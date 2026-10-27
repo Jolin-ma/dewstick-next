@@ -21,7 +21,9 @@ export async function proxy(request: NextRequest) {
   // notFound() runs, so it's caught here and sent to the catch-all route, which 404s.
   const handle = path.match(/^\/products\/([^/]+)$/)?.[1];
   if (handle) {
-    const handles = await getProductHandles();
+    let handles = await getProductHandles();
+    // a product created since the list was fetched: recheck, but at most every 30 s
+    if (handles && !handles.has(handle)) handles = await getProductHandles(30_000);
     if (handles && !handles.has(handle)) {
       return NextResponse.rewrite(new URL(`/${lang}/not-found${search}`, request.url));
     }
@@ -32,6 +34,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // skip Next internals, public/shop assets and anything with a file extension
-  matcher: ["/((?!_next/|shop/|.*\\.[\\w]+$).*)"],
+  // skip Next internals, API routes, public/shop assets and anything with a file extension
+  matcher: ["/((?!_next/|api/|shop/|.*\\.[\\w]+$).*)"],
 };

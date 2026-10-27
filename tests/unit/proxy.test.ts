@@ -22,7 +22,7 @@ describe("matcher", () => {
     expect(doesProxyMatch({ config, nextConfig, url })).toBe(true);
   });
 
-  it.each(["/_next/static/chunk.js", "/shop/img/og-hero.jpg", "/favicon.ico"])("skips %s", (url) => {
+  it.each(["/_next/static/chunk.js", "/api/shopify/webhook", "/shop/img/og-hero.jpg", "/favicon.ico"])("skips %s", (url) => {
     expect(doesProxyMatch({ config, nextConfig, url })).toBe(false);
   });
 });
@@ -57,6 +57,14 @@ describe("unknown product handles", () => {
   it("sends them to the not-found route in the right language", async () => {
     expect(await rewrittenTo("/products/nope")).toBe("/en/not-found");
     expect(await rewrittenTo("/zh/products/nope")).toBe("/zh/not-found");
+  });
+
+  it("rechecks a miss against a fresher list, so new products aren't 404s", async () => {
+    getProductHandles
+      .mockResolvedValueOnce(new Set(["the-set-of-five"]))
+      .mockResolvedValueOnce(new Set(["the-set-of-five", "new-shade"]));
+    expect(await rewrittenTo("/products/new-shade")).toBe("/en/products/new-shade");
+    expect(getProductHandles).toHaveBeenLastCalledWith(30_000);
   });
 
   it("only checks product pages", async () => {
