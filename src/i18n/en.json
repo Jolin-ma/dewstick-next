@@ -1,0 +1,190 @@
+{
+  "general": {
+    "skip": "Skip to content",
+    "nav": "Main",
+    "menu": "Menu",
+    "home": "dewstick home",
+    "cart": "Cart",
+    "cart_count": {
+      "one": "Cart, {{ count }} item",
+      "other": "Cart, {{ count }} items"
+    }
+  },
+  "announcement": {
+    "text": "New — five shades of tinted lip balm. The set of five saves $12."
+  },
+  "nav": {
+    "shop": "Shop",
+    "ingredients": "Ingredients",
+    "idea": "The idea"
+  },
+  "hero": {
+    "eyebrow": "New — tinted lip balm",
+    "title_html": "half lipstick.<br>half lip balm.",
+    "body": "A luxury lip mask, in a stick — real colour over squalane, shea butter and ceramides.",
+    "cta": "Shop the shades",
+    "cta_secondary": "Why it works"
+  },
+  "shades": {
+    "hero_title": "The hero shades",
+    "all_title": "All five shades",
+    "see_all": "Shop all",
+    "footnote": "One formula, five moods. Want them all? The set of five saves $12.",
+    "nectar": {
+      "tone": "coral",
+      "line": "Tinted lip balm — sun-warm coral"
+    },
+    "poppy": {
+      "tone": "true red",
+      "line": "Tinted lip balm — a bright red for every day"
+    },
+    "peony": {
+      "tone": "rosy nude",
+      "line": "Tinted lip balm — your lips, a little rosier"
+    },
+    "blush": {
+      "tone": "soft pink",
+      "line": "Tinted lip balm — barely there, always right"
+    },
+    "orchid": {
+      "tone": "berry rose",
+      "line": "Tinted lip balm — berry rose, a little deeper"
+    }
+  },
+  "set": {
+    "title": "The set of five",
+    "body": "All five shades in one box — one formula, every mood. Happy shades, happy days.",
+    "save": "save {{ amount }} vs. singles",
+    "details": "See the set →"
+  },
+  "feel": {
+    "eyebrow": "asmr — the sound. the texture. the dew.",
+    "title": "Juicy. Glossy. Balmy.",
+    "body": "One swipe, juicy glow. Real colour that melts in like a balm and keeps working like a mask.",
+    "cta": "Find your shade →"
+  },
+  "why": {
+    "title": "Why it works",
+    "body": "Half the tube is a lip treatment — three skincare ingredients doing the work of a lip mask.",
+    "hydrate": {
+      "title": "Hydrate",
+      "body": "Squalane — deep hydration"
+    },
+    "nourish": {
+      "title": "Nourish",
+      "body": "Shea butter — soft & smooth"
+    },
+    "protect": {
+      "title": "Protect",
+      "body": "Ceramides — strengthen & protect"
+    },
+    "glow": {
+      "title": "Glow",
+      "body": "One swipe — juicy glow"
+    }
+  },
+  "note": {
+    "title": "No reviews yet.",
+    "sub": "We're brand new. Reviews will live here once real people have worn it — we won't make any up.",
+    "label": "A note from us",
+    "body": "We made dewstick because we wanted a lip mask we could actually wear out the door: squalane, shea butter and ceramides underneath, real colour on top. Try it and tell us what you think — your words will be the first this space holds."
+  },
+  "newsletter": {
+    "heading": "Stay in the dew",
+    "label": "Email",
+    "placeholder": "your email",
+    "submit": "Join",
+    "privacy": "New shades and news only. No spam, unsubscribe anytime.",
+    "success": "You're in. We'll only write when there's something worth saying."
+  },
+  "footer": {
+    "about": "About",
+    "help": "Help",
+    "contact": "Contact"
+  },
+  "product": {
+    "shade": "Shade",
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "quantity": "Quantity",
+    "qty_up": "Increase quantity",
+    "qty_down": "Decrease quantity"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "continue": "Shop the shades →",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes and shipping calculated at checkout.",
+    "update": "Update",
+    "checkout": "Check out"
+  },
+  "collection": {
+    "empty": "Nothing here yet.",
+    "all": "Collections"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search dewstick",
+    "submit": "Search",
+    "none": "No results for “{{ terms }}”."
+  },
+  "not_found": {
+    "title": "This page doesn't exist."
+  },
+  "password": {
+    "title_plain": "opening soon",
+    "enter": "Enter with password",
+    "label": "Password",
+    "submit": "Enter"
+  },
+  "gift_card": {
+    "title": "Your gift card",
+    "expired": "This gift card has expired."
+  },
+  "home": {
+    "usp_formula": "Squalane, shea butter & ceramides",
+    "usp_shades": "Five shades, one formula",
+    "usp_set": "The set of five saves $12",
+    "hero_p1": "A luxury lip mask, in a stick.",
+    "hero_p2": "Real colour over squalane, shea butter and ceramides. One swipe, juicy glow.",
+    "shop_title": "Find your shade",
+    "badge_new": "New",
+    "badge_save": "Save {{ amount }}",
+    "feel_lead": "One swipe, juicy glow.",
+    "feel_p1": "Real colour that melts in like a balm and keeps working like a mask.",
+    "feel_p2": "Underneath it: squalane, shea butter and ceramides, so every swipe is also a treatment.",
+    "feel_cta": "Find your shade",
+    "story": "Half the tube is lipstick. The other half does the work of a $30 lip mask.",
+    "tiles_title": "Start here",
+    "tile_shades": "The shades",
+    "why_prev": "Previous",
+    "why_next": "Next",
+    "why_squalane": "Squalane",
+    "why_squalane_body": "A skin-identical oil that sinks in fast and holds moisture where lips lose it first.",
+    "why_shea": "Shea butter",
+    "why_shea_body": "Rich fatty acids that soften dry patches and keep lips smooth for hours.",
+    "why_ceramides": "Ceramides",
+    "why_ceramides_body": "The lipids your skin barrier is built from. They help lips hold on to their own moisture.",
+    "why_colour": "Real colour",
+    "why_colour_body": "A sheer-to-buildable tint in five shades, with a juicy, balmy finish.",
+    "note_sign": "— the dewstick team",
+    "lang_q": "You are browsing in English. Switch language?",
+    "footer_shop": "Shop"
+  },
+  "site": {
+    "collection_title": "all five shades",
+    "collection_desc": "Every shade $22 CAD. One formula, every mood.",
+    "footer_project": "This project",
+    "footer_store": "Live Shopify store",
+    "footer_source": "Source on GitHub",
+    "footer_note": "Built with Next.js on the Shopify Storefront API, for the portfolio.",
+    "checkout_title": "Checkout runs on Shopify",
+    "checkout_body": "Shopify's checkout in test mode, so no money moves. The store is a password-protected development store; the password is on my portfolio.",
+    "checkout_cta": "Continue to checkout →",
+    "newsletter_demo": "Demo copy — signups are collected on the Shopify store, not here.",
+    "newsletter_invalid": "Please enter a valid email.",
+    "cart_error": "Something went wrong updating the cart. Please try again."
+  }
+}

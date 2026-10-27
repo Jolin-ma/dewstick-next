@@ -1,0 +1,190 @@
+{
+  "general": {
+    "skip": "跳至正文",
+    "nav": "主导航",
+    "menu": "菜单",
+    "home": "dewstick 首页",
+    "cart": "购物袋",
+    "cart_count": {
+      "one": "购物袋，{{ count }} 件商品",
+      "other": "购物袋，{{ count }} 件商品"
+    }
+  },
+  "announcement": {
+    "text": "全新 —— 五色有色润唇膏。五色套装立省 $12。"
+  },
+  "nav": {
+    "shop": "选购",
+    "ingredients": "成分",
+    "idea": "理念"
+  },
+  "hero": {
+    "eyebrow": "全新 — 有色润唇膏",
+    "title_html": "半支口红，<br>半支润唇膏。",
+    "body": "一支棒状的奢华唇膜 —— 真实色彩，融合角鲨烷、乳木果油与神经酰胺。",
+    "cta": "选购色号",
+    "cta_secondary": "为什么有效"
+  },
+  "shades": {
+    "hero_title": "明星色号",
+    "all_title": "全部五色",
+    "see_all": "查看全部",
+    "footnote": "同一配方，五种心情。全都想要？五色套装立省 $12。",
+    "nectar": {
+      "tone": "珊瑚色",
+      "line": "有色润唇膏 —— 暖阳珊瑚"
+    },
+    "poppy": {
+      "tone": "正红色",
+      "line": "有色润唇膏 —— 日常明亮红"
+    },
+    "peony": {
+      "tone": "玫瑰裸色",
+      "line": "有色润唇膏 —— 你的唇色，多一分红润"
+    },
+    "blush": {
+      "tone": "柔粉色",
+      "line": "有色润唇膏 —— 若有似无，怎么都对"
+    },
+    "orchid": {
+      "tone": "莓果玫瑰",
+      "line": "有色润唇膏 —— 莓果玫瑰，多一分深邃"
+    }
+  },
+  "set": {
+    "title": "五色套装",
+    "body": "五个色号，一盒收齐 —— 同一配方，适配每一种心情。快乐色号，快乐每一天。",
+    "save": "比单支省 {{ amount }}",
+    "details": "查看套装 →"
+  },
+  "feel": {
+    "eyebrow": "asmr —— 声音，质地，水润。",
+    "title": "水润。光泽。柔润。",
+    "body": "轻轻一抹，水润光泽。真实色彩如润唇膏般融化，又像唇膜一样持续呵护。",
+    "cta": "找到你的色号 →"
+  },
+  "why": {
+    "title": "为什么有效",
+    "body": "一半是唇部护理 —— 三种护肤成分，做一支唇膜的工作。",
+    "hydrate": {
+      "title": "保湿",
+      "body": "角鲨烷 —— 深层保湿"
+    },
+    "nourish": {
+      "title": "滋养",
+      "body": "乳木果油 —— 柔滑顺润"
+    },
+    "protect": {
+      "title": "修护",
+      "body": "神经酰胺 —— 强韧修护"
+    },
+    "glow": {
+      "title": "光泽",
+      "body": "轻轻一抹 —— 水润光泽"
+    }
+  },
+  "note": {
+    "title": "还没有评价。",
+    "sub": "我们刚刚起步。等真正的用户用过之后，评价会出现在这里 —— 我们不会编造任何一条。",
+    "label": "我们的话",
+    "body": "我们做 dewstick，是因为想要一支可以直接涂着出门的唇膜：底层是角鲨烷、乳木果油与神经酰胺，表层是真实的色彩。试试看，告诉我们你的感受 —— 你的话将是这里的第一条。"
+  },
+  "newsletter": {
+    "heading": "保持水润",
+    "label": "邮箱",
+    "placeholder": "你的邮箱",
+    "submit": "加入",
+    "privacy": "只发送新色号与品牌消息。绝无垃圾邮件，可随时退订。",
+    "success": "已加入。只在真正值得说的时候给你写信。"
+  },
+  "footer": {
+    "about": "关于",
+    "help": "帮助",
+    "contact": "联系我们"
+  },
+  "product": {
+    "shade": "色号",
+    "add_to_cart": "加入购物袋",
+    "sold_out": "已售罄",
+    "quantity": "数量",
+    "qty_up": "增加数量",
+    "qty_down": "减少数量"
+  },
+  "cart": {
+    "title": "你的购物袋",
+    "empty": "购物袋是空的。",
+    "continue": "选购色号 →",
+    "remove": "移除",
+    "subtotal": "小计",
+    "taxes": "税费与运费在结账时计算。",
+    "update": "更新",
+    "checkout": "去结账"
+  },
+  "collection": {
+    "empty": "这里还没有商品。",
+    "all": "系列"
+  },
+  "search": {
+    "title": "搜索",
+    "placeholder": "搜索 dewstick",
+    "submit": "搜索",
+    "none": "没有找到与“{{ terms }}”相关的结果。"
+  },
+  "not_found": {
+    "title": "页面不存在。"
+  },
+  "password": {
+    "title_plain": "即将开业",
+    "enter": "输入密码进入",
+    "label": "密码",
+    "submit": "进入"
+  },
+  "gift_card": {
+    "title": "你的礼品卡",
+    "expired": "此礼品卡已过期。"
+  },
+  "home": {
+    "usp_formula": "角鲨烷、乳木果油与神经酰胺",
+    "usp_shades": "五个色号，同一配方",
+    "usp_set": "五色套装立省 $12",
+    "hero_p1": "一支棒状的奢华唇膜。",
+    "hero_p2": "真实色彩之下，是角鲨烷、乳木果油与神经酰胺。轻轻一抹，水润光泽。",
+    "shop_title": "找到你的色号",
+    "badge_new": "新品",
+    "badge_save": "立省 {{ amount }}",
+    "feel_lead": "轻轻一抹，水润光泽。",
+    "feel_p1": "色彩像润唇膏一样融化，又像唇膜一样持续滋养。",
+    "feel_p2": "色彩之下是角鲨烷、乳木果油与神经酰胺 —— 每一次涂抹，都是一次护理。",
+    "feel_cta": "找到你的色号",
+    "story": "半支是口红。另一半，做的是一支 $30 唇膜的功课。",
+    "tiles_title": "从这里开始",
+    "tile_shades": "全部色号",
+    "why_prev": "上一张",
+    "why_next": "下一张",
+    "why_squalane": "角鲨烷",
+    "why_squalane_body": "与肌肤相亲的油脂，吸收迅速，把水分锁在双唇最容易流失的地方。",
+    "why_shea": "乳木果油",
+    "why_shea_body": "丰富的脂肪酸软化干纹，让双唇数小时保持柔滑。",
+    "why_ceramides": "神经酰胺",
+    "why_ceramides_body": "构成皮肤屏障的脂质，帮助双唇留住自身水分。",
+    "why_colour": "真实色彩",
+    "why_colour_body": "五个色号，薄涂透亮、叠涂饱满，水润如膏。",
+    "note_sign": "—— dewstick 团队",
+    "lang_q": "当前浏览语言为中文。切换语言？",
+    "footer_shop": "选购"
+  },
+  "site": {
+    "collection_title": "全部五色",
+    "collection_desc": "每支 $22 加元。同一配方，适配每一种心情。",
+    "footer_project": "关于本项目",
+    "footer_store": "Shopify 线上店铺",
+    "footer_source": "GitHub 源代码",
+    "footer_note": "使用 Next.js 与 Shopify Storefront API 构建，用于作品集展示。",
+    "checkout_title": "结账在 Shopify 进行",
+    "checkout_body": "Shopify 测试模式结账，不会产生真实付款。该店铺为需要密码访问的开发店铺，密码见我的作品集。",
+    "checkout_cta": "继续结账 →",
+    "newsletter_demo": "演示副本 —— 订阅在 Shopify 店铺中收集，此处不保存。",
+    "newsletter_invalid": "请输入有效的邮箱地址。",
+    "cart_error": "更新购物袋时出错，请重试。"
+  }
+}
