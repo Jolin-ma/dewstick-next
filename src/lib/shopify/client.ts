@@ -1,9 +1,10 @@
 // Server-side Storefront API client. The token is read from server env only
 // (no NEXT_PUBLIC_ prefix), so it never ships in the client bundle.
 
-const domain = process.env.SHOPIFY_STORE_DOMAIN;
-const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-const apiVersion = process.env.SHOPIFY_STOREFRONT_API_VERSION ?? "2026-10";
+// trimmed: a value pasted into a dashboard with a stray space breaks the URL
+const domain = process.env.SHOPIFY_STORE_DOMAIN?.trim();
+const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN?.trim();
+const apiVersion = process.env.SHOPIFY_STOREFRONT_API_VERSION?.trim() || "2026-10";
 
 export const isStorefrontConfigured = Boolean(domain && token);
 
