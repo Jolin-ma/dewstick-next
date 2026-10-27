@@ -16,7 +16,11 @@ export default defineConfig({
     baseURL: deployed ?? `http://localhost:${PORT}`,
     trace: "retain-on-failure",
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] }, testIgnore: /mobile\.spec/ },
+    // the smallest phone width still in use, with touch and a mobile user agent
+    { name: "mobile", use: { ...devices["iPhone SE"], defaultBrowserType: "chromium", viewport: { width: 320, height: 568 } }, testMatch: /mobile\.spec/ },
+  ],
   webServer: deployed
     ? undefined
     : {

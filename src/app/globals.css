@@ -131,6 +131,8 @@ ul { padding: 0; list-style: none; }
   .site-header__bar { display: flex; justify-content: space-between; }
   .site-header__nav, .hide-mobile { display: none !important; }
   .site-header__tools { gap: .9rem; }
+  /* the 20px bag icon gets a 36px tap target without moving it */
+  .cart-link { padding: 8px; margin: -8px; }
   .wordmark { order: -1; }
 }
 @media (max-width: 47.99rem) {
