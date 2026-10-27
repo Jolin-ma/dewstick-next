@@ -2,7 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 // E2E runs against a production build (`next build && next start`), since Partial Prefetching
 // and the proxy behave differently in `next dev`. Set PLAYWRIGHT_BASE_URL to test a deployment
-// instead, e.g. PLAYWRIGHT_BASE_URL=https://dewstick-next.vercel.app npm run test:e2e
+// instead, e.g. PLAYWRIGHT_BASE_URL=https://dewstick.vercel.app npm run test:e2e
 const PORT = 3100;
 const deployed = process.env.PLAYWRIGHT_BASE_URL;
 

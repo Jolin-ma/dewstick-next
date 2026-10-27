@@ -6,7 +6,8 @@ Shopify Storefront API. Catalog, cart and checkout come from the Shopify
 development store `dewstick.myshopify.com`; the design is the one from the other
 builds.
 
-**Preview:** https://dewstick-next.vercel.app
+**Live:** https://dewstick.vercel.app (also at dewstick-next.vercel.app). The static
+build it replaced is at https://dewstick-static.vercel.app.
 
 ## What comes from where
 
@@ -63,7 +64,7 @@ shown under "Your webhooks will be signed with" into `SHOPIFY_WEBHOOK_SECRET`.
 npm test           # unit tests (Vitest): i18n, metadata, proxy routing, Shopify mapping
 npm run test:e2e   # end-to-end (Playwright) against a production build on :3100
 SHOPIFY_WEBHOOK_SECRET=any-test-key npm run test:e2e   # also runs the signed-webhook test
-PLAYWRIGHT_BASE_URL=https://dewstick-next.vercel.app npm run test:e2e   # against the preview
+PLAYWRIGHT_BASE_URL=https://dewstick.vercel.app npm run test:e2e   # against the live site
 ```
 
 The unit tests mock Shopify and need no token. The end-to-end tests use the real
@@ -74,7 +75,7 @@ carts on the dev store). Run `npx playwright install chromium` once first. CI
 
 ## Lighthouse
 
-Lighthouse 12.8 on the Vercel preview, median of 3 runs per page (27 Oct 2026).
+Lighthouse 12.8 on the Vercel deployment (then at dewstick-next.vercel.app), median of 3 runs per page (27 Oct 2026).
 Mobile uses Lighthouse's default throttling (slow 4G, 4× CPU slowdown).
 
 | Page | Mobile perf | Desktop perf | Accessibility | Best practices | SEO | Mobile LCP |
