@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bodoni_Moda, Hanken_Grotesk, Newsreader, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { Bodoni_Moda, Hanken_Grotesk, Newsreader } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CartLink, CartLinkView } from "@/components/CartLink";
@@ -13,10 +13,8 @@ import "../globals.css";
 const newsreader = Newsreader({ subsets: ["latin"], axes: ["opsz"], variable: "--f-newsreader" });
 const hanken = Hanken_Grotesk({ subsets: ["latin"], variable: "--f-hanken" });
 const bodoni = Bodoni_Moda({ subsets: ["latin"], weight: "700", variable: "--f-bodoni" });
-// CJK fonts are split by unicode-range; preloading them would fetch far more than a page needs
-const notoSans = Noto_Sans_SC({ weight: ["400", "500"], variable: "--f-noto-sans-sc", preload: false });
-const notoSerif = Noto_Serif_SC({ weight: ["400", "700"], variable: "--f-noto-serif-sc", preload: false });
-const fonts = [newsreader, hanken, bodoni, notoSans, notoSerif].map((f) => f.variable).join(" ");
+// 中文 falls back to the device's CJK fonts (see globals.css)
+const fonts = [newsreader, hanken, bodoni].map((f) => f.variable).join(" ");
 
 export const metadata: Metadata = {
   metadataBase,

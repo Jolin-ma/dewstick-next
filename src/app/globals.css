@@ -1,14 +1,18 @@
 /* dewstick — "The Morning Ritual": linen ground, serif voice, 12-column editorial grid,
    square + flat, one red seal. Spec: docs/redesign/DESIGN.md in Jolin-ma/dewstick.
-   Copied from that repo's shop/dewstick.css; font families come from next/font in app/[lang]/layout.tsx. */
+   Copied from that repo's shop/dewstick.css; Latin fonts come from next/font in app/[lang]/layout.tsx,
+   中文 uses the device's own CJK fonts (a Noto SC webfont was ~2.5 MB per page).
+   Greys are darker than the other builds' so text passes WCAG AA (4.5:1) on linen. */
 
 *, *::before, *::after { box-sizing: border-box; }
 :root {
   --linen: #f4efe9; --paper: #ffffff; --ink: #1e1a17; --line: color-mix(in srgb, var(--ink) 28%, transparent);
-  --muted: color-mix(in srgb, var(--ink) 60%, transparent); --dew: #e94b3c; --studio: #f6f5f3;
-  --serif: var(--f-newsreader), var(--f-noto-serif-sc), Georgia, "Times New Roman", serif;
-  --sans: var(--f-hanken), var(--f-noto-sans-sc), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--f-bodoni), var(--f-noto-serif-sc), Didot, "Times New Roman", serif;
+  --muted: color-mix(in srgb, var(--ink) 68%, transparent); --dew: #e94b3c; --studio: #f6f5f3;
+  --cjk-serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun";
+  --cjk-sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei";
+  --serif: var(--f-newsreader), var(--cjk-serif), Georgia, "Times New Roman", serif;
+  --sans: var(--f-hanken), var(--cjk-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--f-bodoni), var(--cjk-serif), Didot, "Times New Roman", serif;
   --text-3xl: 2rem; --text-2xl: 1.625rem; --text-xl: 1.125rem; --text-lg: .9375rem; --text-base: .875rem; --text-sm: .75rem;
   --gap: 1.25rem; --cols: 6; --header-h: 2.75rem; --section: 4rem;
   /* one grid column; cqw resolves against the nearest container (header / main / footer) */
@@ -52,7 +56,7 @@ ul { padding: 0; list-style: none; }
 .lede { font-size: var(--text-lg); line-height: 1.35; }
 .small { font-size: var(--text-base); }
 .muted { color: var(--muted); }
-.faint { color: color-mix(in srgb, var(--ink) 45%, transparent); }
+.faint { color: color-mix(in srgb, var(--ink) 62%, transparent); }
 .accent { color: var(--dew); }
 .medium { font-weight: 500; }
 .prose > * + * { margin-top: 1.3em; }
@@ -142,7 +146,7 @@ ul { padding: 0; list-style: none; }
 @media (min-width: 64rem) { .menu-toggle, .mobile-nav, .only-mobile { display: none !important; } }
 
 .lang-switch { display: flex; align-items: center; gap: 4px; }
-.lang-switch a, .lang-switch button { padding: 0 2px; opacity: .45; white-space: nowrap; }
+.lang-switch a, .lang-switch button { padding: 0 2px; opacity: .62; white-space: nowrap; }
 .lang-switch [aria-current="true"] { opacity: 1; }
 .lang-switch .sep { opacity: .3; }
 
